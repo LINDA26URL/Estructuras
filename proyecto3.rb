@@ -66,10 +66,6 @@ def solucion(pila)
 end
 
 
-#puts 'ingrese la cadena de numeros que decea ordenar '
-#puts 'separe con  espacios cada numero '
-#dato = gets.split(' ')
-#dato.each do |elemento|
 
 #pila =[]
 
