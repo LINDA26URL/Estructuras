@@ -121,3 +121,55 @@ end
 end while dato!= 4
   
   
+
+  def ordenamiento_lista($dato_ingresado)
+    
+    paso= 0
+    size = dato_ingresado.size - 1
+    lista= Lista.new
+    for x in 0..size
+        if lista.tope== nil
+            lista.insertar(dato_ingresado[x])
+    
+            paso +=1
+            puts paso
+        else
+
+            a = lista.tope
+            while a != nil
+                if a.siguiente == nil
+                    lista.insertar_despues(dato_ingresado[x], a.valor)
+                    
+                
+                    paso +=1
+                    puts paso
+                    break
+                elsif a.valor <=dato_ingresado[x] && a.siguiente.valor >= dato_ingresado[x]
+                    lista.insertar_despues(dato_ingresado[x], a.valor)
+               
+                    paso += 1
+                    puts paso
+                    break
+                    if a.valor >= dato_ingrepasosado[x]
+                        lista.insertar_antes(dato_ingresado[x], a.valor)
+                   
+                        paso +=1
+                        puts  paso
+                        break
+                   else
+                       a = a.siguiente
+                       puts paso
+                   end 
+                end
+            end
+        end
+    end
+
+end
+
+            
+puts "ingresar los datos"
+
+$dato_ingresado= gets.chomp.split(",")
+puts ordenamiento_lista(dato_ingresado)
+
