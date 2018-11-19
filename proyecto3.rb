@@ -128,6 +128,89 @@ def mostrar(cola) # mustra la cola
   puts tabla # muestra la tabla
 
 end
+def ordenar(cola,colamen, colamay)  # ordena la cola , recibe cola , y las variables necesarias con los valores de la cola
+  @r = 0        # contador de pasos
+  aux= cola[:tope] # cola auxiliarr es igual a la cola del tope
+  cant = cola[:size] # el tamaño de la cola
+    @r += 1 # contador de pasos
+  while ( aux!=nil) # si el auxiliar no es igual a nulo
+      @r += 1 # contador de pasos
+    aux1=aux[:siguiente] # cola 1 es igual al valor siguiente del el auxiliar de la cola
+      @r += 1 # contador de pasos
+    while (aux1!=nil) # auxiliar 1 no es igual a nulo
+        @r += 1 # contador de pasos
+      if aux[:valor]>aux1[:valor] # el vslor de la cola auxiliar sea mayor a la cola 1 y su valor
+          @r += 1 # contador de pasos
+        temp = aux[:valor] # es igua  al calor de la cola auxiliar
+          @r += 1 # contador de pasos
+        aux[:valor]= aux1[:valor] # el valor de la cola auxiliar sea igual al de la cola 1
+          @r += 1 # contador de pasos
+        aux1[:valor] = temp # el valor de la cola 1 es iguak a temp
+          @r += 1 # contador de pasos
+      end
+      aux1=aux1[:siguiente] # el valor siguiente de la cola 1 sea igual a cola 1
+        @r += 1 # contador de pasos
+    end
+    aux=aux[:siguiente]  # el auxiliar sea igual a su calor siguiente
+      @r += 1 # contador de pasos
+  end
+  puts 'PASOS COLA' # mustra un aviso de los pasos q se realizaron el la cola
+  puts @r # contador total de los pasos de la cola
+end
+
+def vacia?(lista) # mira si la cola esta vacia
+  lista[:tope].nil? && lista[:fondo].nil? # compara el tope y el fondo para ver si estan en la posicion nulo o hay alguan valor
+end
+
+def ordenar_lista(valor) # ordena la lista
+aux =[] # recibe un arreglo
+t=0  #contador
+  for i in 1..valor.length-1 # recorre el arreglo en el valor
+    t = i-1
+    while aux << valor[t] # si el valor es mayor que la lista auxiliar
+      t = t- 1
+    end
+    if valor[t] < aux # si el auxiliar es menor que el valor
+    else
+      valor[t+1] = valor[t] # aumenta el valor de t y comapra con el valor anterir
+      valor[t]=aux # que el valor sea igual a auxiliar
+    end
+  end
+    for i in 0..50 # recorre la lista
+      q += 1
+      valor.push aux[i] # introduce los valores a la lista
+      q += 1
+      puts 'LISTA ORDENADA ' # ordena  la list a
+    tabla = Terminal::Table.new do |t| # introduce los datos a la tabla
+      t.headings = ['Valor'] # titulo
+      t.add_row([
+        valor.delete(" "), # introduce los datos a la tabla
+      ])
+    end
+    puts tabla #muestra la tabla
+    puts valor # muestra los valores
+  end
+end
+
+def insertar_final(lista, valorau) # inserta en el final de la lista
+
+  nodo = {  # nodo o elemento
+    valor: valorau, # valor
+    anterior: nil, # apunta a anterior el siguiente valor
+    siguiente: nil # apunta  a nulo el siguiente valor
+  }
+  if vacia?(lista) # mira si la lista esta vacia
+    lista[:tope] = nodo # el tipe de la lista sea igual al nodo
+    lista[:fondo] = nodo # el fondo de la lista sea igual al nodo
+  else
+    lista[:fondo][:siguiente] = nodo # apunta al nodo siguiente de la lista y se introduce el nodo
+    lista[:fondo] = nodo # el fondo de la lista sea igual al nodo
+  end
+
+  lista[:size] += 1 # se aumenta el tamañao de la lista
+end
+
+
 
 
 
@@ -369,6 +452,8 @@ elsif dato == 3
   end
 end
 end while dato!= 4 # sale del programa
+  
+  
 
 
 
