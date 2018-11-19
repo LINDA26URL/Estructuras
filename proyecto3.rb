@@ -453,7 +453,7 @@ end while dato!= 4 # sale del programa
 
 
 
-
+ # pruevas del ordenamiento
 =begin
   def ordenamiento_lista($dato_ingresado)
 
